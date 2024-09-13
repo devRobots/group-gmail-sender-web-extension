@@ -1,0 +1,85 @@
+/* 
+ * Material Design 3 Switch by Kamiya
+ */
+
+body {
+    --color-primary: 103, 81, 164;
+    --color-primary-container: 234, 221, 255;
+    --color-on-primary-container: 33, 0, 94;
+    --color-surface-variant: 231, 224, 236;
+    --color-on-surface-variant: 73, 69, 78;
+    --color-outline: 121, 116, 126;
+}
+
+.md3.switch {
+    user-select: none;
+    position: relative;
+    height: 28px;
+    width: 46px;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0px;
+    font-family: "Roboto", sans-serif;
+}
+
+.md3.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.md3.switch span.slider::before {
+    /* Thumb */
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 0px;
+    margin: 6px;
+    background-color: rgb(var(--color-outline));
+    border-radius: 28px;
+    transition: left 175ms cubic-bezier(0, .5, .5, 1.5),
+        background-color .1s ease-in-out,
+        height 50ms ease-in-out,
+        width 50ms ease-in-out,
+        margin 50ms ease-in-out;
+}
+
+.md3.switch input:checked+span.slider::before {
+    /* Thumb: active */
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    left: 22px;
+    margin: 2px;
+}
+
+
+.md3.switch span.slider {
+    /* Track */
+    position: absolute;
+    cursor: pointer;
+    background-color: rgb(var(--color-surface-variant));
+    width: 48px;
+    height: 24px;
+    border-radius: 28px;
+    border: 2px solid rgb(var(--color-outline));
+    transition: background-color .1s ease-in-out,
+        border-color .1s ease-in-out;
+}
+
+.md3.switch input:checked+span.slider {
+    /* Track: active */
+    background-color: rgb(var(--color-primary));
+    border-color: transparent;
+}
+
+.fix {
+    padding-left: 10px !important;
+}
+
+.space {
+    gap: 36px;
+    text-wrap: nowrap;
+}
